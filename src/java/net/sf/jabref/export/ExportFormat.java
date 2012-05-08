@@ -236,6 +236,9 @@ public class ExportFormat implements IExportFormat {
 		for (BibtexEntry entry : sorted) {
 			ExportFormats.entryNumber++; // Increment entry counter.
 
+			// scan all the fields of the entry and copy url, if any,
+			// in to the url field so that it can be exported to an
+			// HTML table
 			UpdateEntryInfo.autoFillUrl (entry);
 
 			// Get the layout
