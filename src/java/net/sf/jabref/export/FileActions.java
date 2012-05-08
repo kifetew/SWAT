@@ -349,11 +349,11 @@ public class FileActions
         }
 
         List<Comparator<BibtexEntry>> comparators = new ArrayList<Comparator<BibtexEntry>>();
-        comparators.add(new CrossRefEntryComparator());
-        comparators.add(new FieldComparator(pri, priD));
-        comparators.add(new FieldComparator(sec, secD));
-        comparators.add(new FieldComparator(ter, terD));
-        comparators.add(new FieldComparator(BibtexFields.KEY_FIELD));
+//        comparators.add(new CrossRefEntryComparator());
+//        comparators.add(new FieldComparator(pri, priD));
+//        comparators.add(new FieldComparator(sec, secD));
+//        comparators.add(new FieldComparator(ter, terD));
+//        comparators.add(new FieldComparator(BibtexFields.KEY_FIELD));
         // Use glazed lists to get a sorted view of the entries:
         BasicEventList entryList = new BasicEventList();
         SortedList sorter = new SortedList(entryList, new FieldComparatorStack<BibtexEntry>(comparators));

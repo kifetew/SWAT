@@ -1,4 +1,4 @@
-package swat.test;
+package net.sf.jabref.swat;
 
 import static org.junit.Assert.*;
 
@@ -11,11 +11,11 @@ import net.sf.jabref.BibtexDatabase;
 import net.sf.jabref.Globals;
 import net.sf.jabref.JabRefPreferences;
 import net.sf.jabref.swat.ShrinkingDialog;
+import net.sf.jabref.swat.ConsolidatingDialogTest.BibtexEntryWrapper;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import swat.test.ConsolidatingDialogTest.BibtexEntryWrapper;
 
 public class ShrinkingDialogTest {
 	@BeforeClass

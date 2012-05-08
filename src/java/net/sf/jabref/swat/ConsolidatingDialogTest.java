@@ -1,4 +1,4 @@
-package swat.test;
+package net.sf.jabref.swat;
 
 import static org.junit.Assert.*;
 
