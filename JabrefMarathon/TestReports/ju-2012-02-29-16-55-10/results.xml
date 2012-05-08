@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<test projectname='jabref-gui-test' reportdir='ju-2012-02-29-16-55-10' >
+<testsuite name="SelectedTests" >
+  <testcase name="test" status="0" time="8.856" >
+  </testcase>
+</testsuite>
+</test>

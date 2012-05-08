@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<test projectname='jabref-gui-test' reportdir='ju-2012-02-29-18-08-42' >
+<testsuite name="SelectedTests" >
+  <testcase name="test_invalid_bib_exception" status="0" time="9.888" >
+  </testcase>
+</testsuite>
+</test>

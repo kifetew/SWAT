@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<test projectname='jabref-gui-test' reportdir='ju-2012-02-14-18-02-13' >
+<testsuite name="AllTests" >
+  <testcase name="test" status="1" time="23.894" >
+<![CDATA[net.sourceforge.rmilite.RemoteInvocationException: error invoking destroy: java.rmi.ConnectException: Connection refused to host: 127.0.1.1; nested exception is: 
+	java.net.ConnectException: Connection refused
+	at net.sourceforge.rmilite.impl.LocalInvocationHandlerImpl.invokeRemote(LocalInvocationHandlerImpl.java:70)
+	at net.sourceforge.rmilite.impl.LocalInvocationHandlerImpl.invoke(LocalInvocationHandlerImpl.java:56)
+	at $Proxy9.destroy(Unknown Source)
+	at net.sourceforge.marathon.runtime.JavaRuntimeLeash.destroy(JavaRuntimeLeash.java:141)
+	at net.sourceforge.marathon.junit.MarathonTestCase.runTest(MarathonTestCase.java:138)
+Caused by: java.rmi.ConnectException: Connection refused to host: 127.0.1.1; nested exception is: 
+	java.net.ConnectException: Connection refused
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:128)
+	at net.sourceforge.rmilite.impl.RemoteInvocationHandlerImpl_Stub.invoke(Unknown Source)
+	at net.sourceforge.rmilite.impl.LocalInvocationHandlerImpl.invokeRemote(LocalInvocationHandlerImpl.java:66)
+	... 12 more
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:327)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:193)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:180)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:384)
+	at java.net.Socket.connect(Socket.java:546)
+	at java.net.Socket.connect(Socket.java:495)
+	at java.net.Socket.<init>(Socket.java:392)
+	at java.net.Socket.<init>(Socket.java:206)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:146)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 17 more
+  ]]></testcase>
+  <testcase name="test2" status="1" time="12.311" >
+<![CDATA[net.sourceforge.rmilite.RemoteInvocationException: error invoking destroy: java.rmi.ConnectException: Connection refused to host: 127.0.1.1; nested exception is: 
+	java.net.ConnectException: Connection refused
+	at net.sourceforge.rmilite.impl.LocalInvocationHandlerImpl.invokeRemote(LocalInvocationHandlerImpl.java:70)
+	at net.sourceforge.rmilite.impl.LocalInvocationHandlerImpl.invoke(LocalInvocationHandlerImpl.java:56)
+	at $Proxy9.destroy(Unknown Source)
+	at net.sourceforge.marathon.runtime.JavaRuntimeLeash.destroy(JavaRuntimeLeash.java:141)
+	at net.sourceforge.marathon.junit.MarathonTestCase.runTest(MarathonTestCase.java:138)
+Caused by: java.rmi.ConnectException: Connection refused to host: 127.0.1.1; nested exception is: 
+	java.net.ConnectException: Connection refused
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:128)
+	at net.sourceforge.rmilite.impl.RemoteInvocationHandlerImpl_Stub.invoke(Unknown Source)
+	at net.sourceforge.rmilite.impl.LocalInvocationHandlerImpl.invokeRemote(LocalInvocationHandlerImpl.java:66)
+	... 12 more
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:327)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:193)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:180)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:384)
+	at java.net.Socket.connect(Socket.java:546)
+	at java.net.Socket.connect(Socket.java:495)
+	at java.net.Socket.<init>(Socket.java:392)
+	at java.net.Socket.<init>(Socket.java:206)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:146)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 17 more
+  ]]></testcase>
+</testsuite>
+</test>

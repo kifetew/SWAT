@@ -1,0 +1,12 @@
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: type, value: JList}
+    - {method: equals, name: indexInContainer, value: '7'}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JList}
+    - {name: type, value: JList}
+    - {name: size, value: '[width=181,height=448]'}
+    - {name: component.class.simpleName, value: JList}
+    - {name: component.class.name, value: javax.swing.JList}
+    name: JList_7

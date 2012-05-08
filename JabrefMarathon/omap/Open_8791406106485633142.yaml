@@ -1,0 +1,36 @@
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: type, value: JFileChooser}
+    - {method: equals, name: indexInContainer, value: '4'}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JFileChooser}
+    - {name: type, value: JFileChooser}
+    - {name: size, value: '[width=506,height=326]'}
+    - {name: component.class.simpleName, value: JFileChooser}
+    - {name: component.class.name, value: javax.swing.JFileChooser}
+    name: JFileChooser_4
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: type, value: net.sf.jabref.JabRefFileChooser}
+    - {method: equals, name: indexInContainer, value: '4'}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JFileChooser}
+    - {name: type, value: net.sf.jabref.JabRefFileChooser}
+    - {name: size, value: '[width=507,height=326]'}
+    - {name: component.class.simpleName, value: JabRefFileChooser}
+    - {name: component.class.name, value: net.sf.jabref.JabRefFileChooser}
+    name: net.sf.jabref.JabRefFileChooser_4
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: type, value: net.sf.jabref.JabRefFileChooser}
+    - {method: equals, name: indexInContainer, value: '9'}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JFileChooser}
+    - {name: type, value: net.sf.jabref.JabRefFileChooser}
+    - {name: size, value: '[width=507,height=326]'}
+    - {name: component.class.simpleName, value: JabRefFileChooser}
+    - {name: component.class.name, value: net.sf.jabref.JabRefFileChooser}
+    name: net.sf.jabref.JabRefFileChooser_9

@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<test projectname='jabref-gui-test' reportdir='ju-2012-02-14-18-23-33' >
+<testsuite name="AllTests" >
+  <testcase name="test" status="1" time="37.718" >
+<![CDATA[net.sourceforge.rmilite.RemoteInvocationException: error invoking destroy: java.rmi.ConnectIOException: error during JRMP connection establishment; nested exception is: 
+	java.net.SocketException: Connection reset
+	at net.sourceforge.rmilite.impl.LocalInvocationHandlerImpl.invokeRemote(LocalInvocationHandlerImpl.java:70)
+	at net.sourceforge.rmilite.impl.LocalInvocationHandlerImpl.invoke(LocalInvocationHandlerImpl.java:56)
+	at $Proxy9.destroy(Unknown Source)
+	at net.sourceforge.marathon.runtime.JavaRuntimeLeash.destroy(JavaRuntimeLeash.java:141)
+	at net.sourceforge.marathon.junit.MarathonTestCase.runTest(MarathonTestCase.java:138)
+Caused by: java.rmi.ConnectIOException: error during JRMP connection establishment; nested exception is: 
+	java.net.SocketException: Connection reset
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:304)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:128)
+	at net.sourceforge.rmilite.impl.RemoteInvocationHandlerImpl_Stub.invoke(Unknown Source)
+	at net.sourceforge.rmilite.impl.LocalInvocationHandlerImpl.invokeRemote(LocalInvocationHandlerImpl.java:66)
+	... 12 more
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:185)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:235)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:254)
+	at java.io.DataInputStream.readByte(DataInputStream.java:265)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:246)
+	... 16 more
+  ]]></testcase>
+  <testcase name="test2" status="1" time="4.624" >
+<![CDATA[java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Object.wait(Object.java:502)
+	at net.sourceforge.marathon.junit.MarathonTestCase.runTest(MarathonTestCase.java:133)
+  ]]></testcase>
+</testsuite>
+</test>

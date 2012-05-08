@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<test projectname='jabref-gui-test' reportdir='ju-2012-02-29-17-53-08' >
+<testsuite name="SelectedTests" >
+  <testcase name="test_save_exception" status="1" time="45.037" >
+<![CDATA[net.sourceforge.rmilite.RemoteInvocationException: error invoking destroy: java.rmi.UnmarshalException: Error unmarshaling return header; nested exception is: 
+	java.io.EOFException
+	at net.sourceforge.rmilite.impl.LocalInvocationHandlerImpl.invokeRemote(LocalInvocationHandlerImpl.java:70)
+	at net.sourceforge.rmilite.impl.LocalInvocationHandlerImpl.invoke(LocalInvocationHandlerImpl.java:56)
+	at $Proxy9.destroy(Unknown Source)
+	at net.sourceforge.marathon.runtime.JavaRuntimeLeash.destroy(JavaRuntimeLeash.java:141)
+	at net.sourceforge.marathon.junit.MarathonTestCase.runTest(MarathonTestCase.java:138)
+Caused by: java.rmi.UnmarshalException: Error unmarshaling return header; nested exception is: 
+	java.io.EOFException
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:209)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:142)
+	at net.sourceforge.rmilite.impl.RemoteInvocationHandlerImpl_Stub.invoke(Unknown Source)
+	at net.sourceforge.rmilite.impl.LocalInvocationHandlerImpl.invokeRemote(LocalInvocationHandlerImpl.java:66)
+	... 12 more
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readByte(DataInputStream.java:250)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:195)
+	... 15 more
+  ]]></testcase>
+</testsuite>
+</test>

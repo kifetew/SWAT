@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<test projectname='jabref-gui-test' reportdir='ju-2012-02-29-17-26-49' >
+<testsuite name="AllTests" >
+  <testcase name="test" status="0" time="16.036" >
+  </testcase>
+  <testcase name="test2" status="0" time="18.156" >
+  </testcase>
+  <testcase name="test_save_exception" status="2" time="32.889" >
+<![CDATA[net.sourceforge.marathon.junit.MarathonAssertion: Application under test aborted - use set_no_fail_on_exit to suppress this error
+	Failure: Application under test aborted - use set_no_fail_on_exit to suppress this error
+	at System.exit(internal:1)
+	at net.sourceforge.marathon.junit.MarathonTestCase.confirmResult(MarathonTestCase.java:191)
+	at net.sourceforge.marathon.junit.MarathonTestCase.runTest(MarathonTestCase.java:135)
+  ]]></testcase>
+</testsuite>
+</test>

@@ -1,0 +1,73 @@
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: type, value: JTextField}
+    - {method: equals, name: indexInContainer, value: '6'}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JTextField}
+    - {name: type, value: JTextField}
+    - {name: size, value: '[width=226,height=22]'}
+    - {name: component.class.simpleName, value: JTextField}
+    - {name: component.class.name, value: javax.swing.JTextField}
+    name: JTextField_6
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: type, value: JButton}
+    - {method: equals, name: indexInContainer, value: '7'}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JButton}
+    - {name: cText, value: Browse}
+    - {name: type, value: JButton}
+    - {name: size, value: '[width=59,height=22]'}
+    - {name: component.class.simpleName, value: JButton}
+    - {name: component.class.name, value: javax.swing.JButton}
+    - {name: accessibleContext.accessibleName, value: Browse}
+    name: Browse
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: type, value: JButton}
+    - {method: equals, name: indexInContainer, value: '11'}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JButton}
+    - {name: cText, value: Browse}
+    - {name: type, value: JButton}
+    - {name: size, value: '[width=59,height=22]'}
+    - {name: component.class.simpleName, value: JButton}
+    - {name: component.class.name, value: javax.swing.JButton}
+    - {name: accessibleContext.accessibleName, value: Browse}
+    name: Browse_2
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: cText, value: Run}
+    - {method: equals, name: type, value: JButton}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JButton}
+    - {name: cText, value: Run}
+    - {name: precedingLabel, value: bib File}
+    - {name: type, value: JButton}
+    - {name: size, value: '[width=300,height=32]'}
+    - {name: layoutData.x, value: '2.0'}
+    - {name: layoutData.y, value: '0.0'}
+    - {name: component.class.simpleName, value: JButton}
+    - {name: component.class.name, value: javax.swing.JButton}
+    - {name: accessibleContext.accessibleName, value: Run}
+    name: Run
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: cText, value: Close}
+    - {method: equals, name: type, value: JButton}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JButton}
+    - {name: cText, value: Close}
+    - {name: type, value: JButton}
+    - {name: size, value: '[width=300,height=32]'}
+    - {name: layoutData.x, value: '2.0'}
+    - {name: layoutData.y, value: '1.0'}
+    - {name: component.class.simpleName, value: JButton}
+    - {name: component.class.name, value: javax.swing.JButton}
+    - {name: accessibleContext.accessibleName, value: Close}
+    name: Close

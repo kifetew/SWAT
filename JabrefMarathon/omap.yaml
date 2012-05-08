@@ -1,0 +1,97 @@
+- !!net.sourceforge.marathon.objectmap.OMapContainer
+    containerGeneralProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JFrame}
+    - {name: oMapClassName, value: net.sf.jabref.JabRefFrame}
+    - {name: size, value: '[width=840,height=716]'}
+    - {name: oMapClassSimpleName, value: JabRefFrame}
+    - {name: title, value: JabRef}
+    - {name: component.class.simpleName, value: JabRefFrame}
+    - {name: name, value: frame0}
+    - {name: component.class.name, value: net.sf.jabref.JabRefFrame}
+    - {name: accessibleContext.accessibleName, value: JabRef}
+    containerRecognitionProperties:
+    - {method: equals, name: oMapClassName, value: net.sf.jabref.JabRefFrame}
+    containerTitles: [JabRef, JabRef - /home/fitsum/workspace2/Jabref/bib1.bib, JabRef - /disk1/fitsum/home/workspace2/Jabref/bib1.bib,
+        JabRef - /disk1/fitsum/home/workspace2/Jabref/testShrinking/initialBib.bib]
+    fileName: JabRef_8990671343609537890.yaml
+- !!net.sourceforge.marathon.objectmap.OMapContainer
+    containerGeneralProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JDialog}
+    - {name: oMapClassName, value: javax.swing.JFileChooser#Dialog}
+    - {name: size, value: '[width=508,height=356]'}
+    - {name: oMapClassSimpleName, value: JFileChooser#Dialog}
+    - {name: title, value: Open}
+    - {name: component.class.simpleName, value: JDialog}
+    - {name: name, value: dialog0}
+    - {name: component.class.name, value: javax.swing.JDialog}
+    - {name: accessibleContext.accessibleName, value: Open}
+    containerRecognitionProperties:
+    - {method: equals, name: oMapClassName, value: javax.swing.JFileChooser#Dialog}
+    containerTitles: [Open]
+    fileName: Open_8791406106485633142.yaml
+- !!net.sourceforge.marathon.objectmap.OMapContainer
+    containerGeneralProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JDialog}
+    - {name: oMapClassName, value: net.sf.jabref.PrefsDialog3}
+    - {name: size, value: '[width=1020,height=552]'}
+    - {name: oMapClassSimpleName, value: PrefsDialog3}
+    - {name: title, value: JabRef preferences}
+    - {name: component.class.simpleName, value: PrefsDialog3}
+    - {name: name, value: dialog2}
+    - {name: component.class.name, value: net.sf.jabref.PrefsDialog3}
+    - {name: accessibleContext.accessibleName, value: JabRef preferences}
+    containerRecognitionProperties:
+    - {method: equals, name: oMapClassName, value: net.sf.jabref.PrefsDialog3}
+    containerTitles: [JabRef preferences]
+    fileName: JabRef preferences_7773979238604791724.yaml
+- !!net.sourceforge.marathon.objectmap.OMapContainer
+    containerGeneralProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JDialog}
+    - {name: oMapClassName, value: net.sf.jabref.swat.ConsolidatingDialog}
+    - {name: size, value: '[width=321,height=133]'}
+    - {name: oMapClassSimpleName, value: ConsolidatingDialog}
+    - {name: title, value: Muahaha !}
+    - {name: component.class.simpleName, value: ConsolidatingDialog}
+    - {name: name, value: dialog0}
+    - {name: component.class.name, value: net.sf.jabref.swat.ConsolidatingDialog}
+    - {name: accessibleContext.accessibleName, value: Muahaha !}
+    containerRecognitionProperties:
+    - {method: equals, name: oMapClassName, value: net.sf.jabref.swat.ConsolidatingDialog}
+    containerTitles: [Muahaha !]
+    fileName: Muahaha !_1908413767486942237.yaml
+- !!net.sourceforge.marathon.objectmap.OMapContainer
+    containerGeneralProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JDialog}
+    - {name: oMapClassName, value: net.sf.jabref.swat.ShrinkingDialog}
+    - {name: size, value: '[width=611,height=133]'}
+    - {name: oMapClassSimpleName, value: ShrinkingDialog}
+    - {name: title, value: Shrinking Database}
+    - {name: component.class.simpleName, value: ShrinkingDialog}
+    - {name: name, value: dialog1}
+    - {name: component.class.name, value: net.sf.jabref.swat.ShrinkingDialog}
+    - {name: accessibleContext.accessibleName, value: Shrinking Database}
+    containerRecognitionProperties:
+    - {method: equals, name: oMapClassName, value: net.sf.jabref.swat.ShrinkingDialog}
+    containerTitles: [Shrinking Database]
+    fileName: Shrinking Database_2577780256115707323.yaml
+- !!net.sourceforge.marathon.objectmap.OMapContainer
+    containerGeneralProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JDialog}
+    - {name: oMapClassName, value: javax.swing.JOptionPane#Dialog_3_0}
+    - {name: size, value: '[width=452,height=117]'}
+    - {name: oMapClassSimpleName, value: JOptionPane#Dialog}
+    - {name: title, value: Duplicate BibTeX key}
+    - {name: component.class.simpleName, value: JDialog}
+    - {name: name, value: dialog1}
+    - {name: component.class.name, value: javax.swing.JDialog}
+    - {name: accessibleContext.accessibleName, value: Duplicate BibTeX key}
+    containerRecognitionProperties:
+    - {method: equals, name: oMapClassName, value: javax.swing.JOptionPane#Dialog_3_0}
+    containerTitles: [Duplicate BibTeX key]
+    fileName: Duplicate BibTeX key_3441556491695759654.yaml

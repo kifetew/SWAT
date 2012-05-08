@@ -1,0 +1,279 @@
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: iconFile, value: filenew}
+    - {method: equals, name: type, value: JButton}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: iconFile, value: filenew}
+    - {name: instanceOf, value: javax.swing.JButton}
+    - {name: type, value: JButton}
+    - {name: size, value: '[width=22,height=25]'}
+    - {name: component.class.simpleName, value: JButton}
+    - {name: component.class.name, value: javax.swing.JButton}
+    - {name: toolTipText, value: New BibTeX database}
+    name: filenew
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: iconFile, value: fileopen}
+    - {method: equals, name: type, value: JButton}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: iconFile, value: fileopen}
+    - {name: instanceOf, value: javax.swing.JButton}
+    - {name: type, value: JButton}
+    - {name: size, value: '[width=22,height=25]'}
+    - {name: component.class.simpleName, value: JButton}
+    - {name: component.class.name, value: javax.swing.JButton}
+    - {name: toolTipText, value: Open BibTeX database}
+    name: fileopen
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: type, value: net.sf.jabref.gui.MainTable}
+    - {method: equals, name: indexInContainer, value: '50'}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JTable}
+    - {name: type, value: net.sf.jabref.gui.MainTable}
+    - {name: size, value: '[width=666,height=528]'}
+    - {name: component.class.simpleName, value: MainTable}
+    - {name: component.class.name, value: net.sf.jabref.gui.MainTable}
+    - {name: fieldName, value: mainTable}
+    name: net.sf.jabref.gui.MainTable_50
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: cText, value: Options}
+    - {method: equals, name: type, value: JMenu}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JMenu}
+    - {name: cText, value: Options}
+    - {name: type, value: JMenu}
+    - {name: size, value: '[width=65,height=23]'}
+    - {name: component.class.simpleName, value: JMenu}
+    - {name: component.class.name, value: javax.swing.JMenu}
+    - {name: accessibleContext.accessibleName, value: Options}
+    name: Options
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: type, value: JRootPane}
+    - {method: equals, name: indexInContainer, value: '1'}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JRootPane}
+    - {name: type, value: JRootPane}
+    - {name: size, value: '[width=838,height=686]'}
+    - {name: component.class.simpleName, value: JRootPane}
+    - {name: component.class.name, value: javax.swing.JRootPane}
+    name: JRootPane_1
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: cText, value: Consolidate a folder}
+    - {method: equals, name: type, value: JMenu$1}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JMenu$1}
+    - {name: cText, value: Consolidate a folder}
+    - {name: type, value: JMenu$1}
+    - {name: size, value: '[width=421,height=22]'}
+    - {name: component.class.simpleName, value: ''}
+    - {name: component.class.name, value: javax.swing.JMenu$1}
+    - {name: toolTipText, value: Consolidate a folder}
+    - {name: accessibleContext.accessibleName, value: Consolidate a folder}
+    name: Consolidate a folder
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: cText, value: Tools}
+    - {method: equals, name: type, value: JMenu}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JMenu}
+    - {name: cText, value: Tools}
+    - {name: type, value: JMenu}
+    - {name: size, value: '[width=49,height=23]'}
+    - {name: component.class.simpleName, value: JMenu}
+    - {name: component.class.name, value: javax.swing.JMenu}
+    - {name: accessibleContext.accessibleName, value: Tools}
+    name: Tools
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: type, value: net.sf.jabref.gui.MainTable}
+    - {method: equals, name: indexInContainer, value: '73'}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JTable}
+    - {name: type, value: net.sf.jabref.gui.MainTable}
+    - {name: size, value: '[width=666,height=528]'}
+    - {name: component.class.simpleName, value: MainTable}
+    - {name: component.class.name, value: net.sf.jabref.gui.MainTable}
+    - {name: fieldName, value: mainTable}
+    name: net.sf.jabref.gui.MainTable_73
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: type, value: net.sf.jabref.gui.MainTable}
+    - {method: equals, name: indexInContainer, value: '75'}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JTable}
+    - {name: type, value: net.sf.jabref.gui.MainTable}
+    - {name: size, value: '[width=666,height=528]'}
+    - {name: component.class.simpleName, value: MainTable}
+    - {name: component.class.name, value: net.sf.jabref.gui.MainTable}
+    - {name: fieldName, value: mainTable}
+    name: net.sf.jabref.gui.MainTable_75
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: cText, value: File}
+    - {method: equals, name: type, value: JMenu}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JMenu}
+    - {name: cText, value: File}
+    - {name: type, value: JMenu}
+    - {name: size, value: '[width=37,height=23]'}
+    - {name: component.class.simpleName, value: JMenu}
+    - {name: component.class.name, value: javax.swing.JMenu}
+    - {name: accessibleContext.accessibleName, value: File}
+    name: File
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: cText, value: Import into new database}
+    - {method: equals, name: type, value: JMenu$1}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JMenu$1}
+    - {name: cText, value: Import into new database}
+    - {name: type, value: JMenu$1}
+    - {name: accelerator, value: ctrl alt pressed I}
+    - {name: size, value: '[width=336,height=22]'}
+    - {name: component.class.simpleName, value: ''}
+    - {name: component.class.name, value: javax.swing.JMenu$1}
+    - {name: accessibleContext.accessibleName, value: Import into new database}
+    name: Import into new database
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: cText, value: Preferences}
+    - {method: equals, name: type, value: JMenu$1}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: iconFile, value: advancedsettings}
+    - {name: instanceOf, value: javax.swing.JMenu$1}
+    - {name: cText, value: Preferences}
+    - {name: type, value: JMenu$1}
+    - {name: size, value: '[width=244,height=22]'}
+    - {name: component.class.simpleName, value: ''}
+    - {name: component.class.name, value: javax.swing.JMenu$1}
+    - {name: toolTipText, value: Preferences}
+    - {name: accessibleContext.accessibleName, value: Preferences}
+    name: Preferences
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: cText, value: BibTeX}
+    - {method: equals, name: type, value: JMenu}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JMenu}
+    - {name: cText, value: BibTeX}
+    - {name: type, value: JMenu}
+    - {name: size, value: '[width=57,height=23]'}
+    - {name: component.class.simpleName, value: JMenu}
+    - {name: component.class.name, value: javax.swing.JMenu}
+    - {name: accessibleContext.accessibleName, value: BibTeX}
+    name: BibTeX
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: type, value: JTabbedPane}
+    - {method: equals, name: indexInContainer, value: '62'}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JTabbedPane}
+    - {name: type, value: JTabbedPane}
+    - {name: size, value: '[width=832,height=624]'}
+    - {name: component.class.simpleName, value: JTabbedPane}
+    - {name: component.class.name, value: javax.swing.JTabbedPane}
+    - {name: fieldName, value: tabbedPane}
+    name: JTabbedPane_62
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: type, value: JTabbedPane}
+    - {method: equals, name: indexInContainer, value: '44'}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JTabbedPane}
+    - {name: type, value: JTabbedPane}
+    - {name: size, value: '[width=832,height=624]'}
+    - {name: component.class.simpleName, value: JTabbedPane}
+    - {name: component.class.name, value: javax.swing.JTabbedPane}
+    - {name: fieldName, value: tabbedPane}
+    - {name: accessibleContext.accessibleName, value: bib1.bib}
+    name: JTabbedPane_44
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: cText, value: Shrink a bib file}
+    - {method: equals, name: type, value: JMenu$1}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JMenu$1}
+    - {name: cText, value: Shrink a bib file}
+    - {name: type, value: JMenu$1}
+    - {name: size, value: '[width=421,height=22]'}
+    - {name: component.class.simpleName, value: ''}
+    - {name: component.class.name, value: javax.swing.JMenu$1}
+    - {name: toolTipText, value: Shrink a bib file}
+    - {name: accessibleContext.accessibleName, value: Shrink a bib file}
+    name: Shrink a bib file
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: type, value: net.sf.jabref.gui.MainTable}
+    - {method: equals, name: indexInContainer, value: '76'}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JTable}
+    - {name: type, value: net.sf.jabref.gui.MainTable}
+    - {name: size, value: '[width=662,height=528]'}
+    - {name: component.class.simpleName, value: MainTable}
+    - {name: component.class.name, value: net.sf.jabref.gui.MainTable}
+    - {name: fieldName, value: mainTable}
+    name: net.sf.jabref.gui.MainTable_76
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: cText, value: Quit}
+    - {method: equals, name: type, value: JMenu$1}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JMenu$1}
+    - {name: cText, value: Quit}
+    - {name: type, value: JMenu$1}
+    - {name: accelerator, value: ctrl pressed Q}
+    - {name: size, value: '[width=336,height=22]'}
+    - {name: component.class.simpleName, value: ''}
+    - {name: component.class.name, value: javax.swing.JMenu$1}
+    - {name: toolTipText, value: Quit JabRef}
+    - {name: accessibleContext.accessibleName, value: Quit}
+    name: Quit
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: iconFile, value: fileclose}
+    - {method: equals, name: type, value: JButton}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: iconFile, value: fileclose}
+    - {name: instanceOf, value: javax.swing.JButton}
+    - {name: type, value: JButton}
+    - {name: size, value: '[width=22,height=25]'}
+    - {name: component.class.simpleName, value: JButton}
+    - {name: component.class.name, value: javax.swing.JButton}
+    - {name: toolTipText, value: Close the current database}
+    name: fileclose
+- !!net.sourceforge.marathon.objectmap.OMapComponent
+    componentRecognitionProperties:
+    - {method: equals, name: type, value: net.sf.jabref.gui.MainTable}
+    - {method: equals, name: indexInContainer, value: '74'}
+    generalProperties:
+    - {name: enabled, value: 'true'}
+    - {name: instanceOf, value: javax.swing.JTable}
+    - {name: type, value: net.sf.jabref.gui.MainTable}
+    - {name: size, value: '[width=662,height=528]'}
+    - {name: component.class.simpleName, value: MainTable}
+    - {name: component.class.name, value: net.sf.jabref.gui.MainTable}
+    - {name: fieldName, value: mainTable}
+    name: net.sf.jabref.gui.MainTable_74

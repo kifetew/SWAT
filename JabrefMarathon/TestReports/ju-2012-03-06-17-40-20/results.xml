@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<test projectname='jabref-gui-test' reportdir='ju-2012-03-06-17-40-20' >
+<testsuite name="AllTests" >
+  <testcase name="test_invalid_bib_exception" status="0" time="15.345" >
+  </testcase>
+  <testcase name="test_open_close" status="0" time="12.811" >
+  </testcase>
+  <testcase name="test_run" status="0" time="17.55" >
+  </testcase>
+  <testcase name="test_save_exception" status="0" time="16.955" >
+  </testcase>
+  <testcase name="test_shrinking" status="0" time="13.973" >
+  </testcase>
+  <testcase name="test_wrong_bib" status="2" time="19.754" >
+<![CDATA[net.sourceforge.marathon.junit.MarathonAssertion: Application under test aborted - use set_no_fail_on_exit to suppress this error
+	Failure: Application under test aborted - use set_no_fail_on_exit to suppress this error
+	at System.exit(internal:1)
+	at net.sourceforge.marathon.junit.MarathonTestCase.confirmResult(MarathonTestCase.java:191)
+	at net.sourceforge.marathon.junit.MarathonTestCase.runTest(MarathonTestCase.java:135)
+  ]]></testcase>
+</testsuite>
+</test>
