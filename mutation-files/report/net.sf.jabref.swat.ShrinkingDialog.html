@@ -1,0 +1,382 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+net.sf.jabref.swat.ShrinkingDialog
+</title>
+<link href="prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="prettify.js"></script>
+</head>
+<body onload="prettyPrint()">
+<h2>Javalanche report for class:<br/> net.sf.jabref.swat.ShrinkingDialog </h2><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span>package net.sf.jabref.swat;
+<span class="nocode"><a name="2">  2: </a></span>
+<span class="nocode"><a name="3">  3: </a></span>import java.awt.GridLayout;
+<span class="nocode"><a name="4">  4: </a></span>import java.awt.event.ActionEvent;
+<span class="nocode"><a name="5">  5: </a></span>import java.io.File;
+<span class="nocode"><a name="6">  6: </a></span>import java.io.FileInputStream;
+<span class="nocode"><a name="7">  7: </a></span>import java.io.IOException;
+<span class="nocode"><a name="8">  8: </a></span>import java.util.ArrayList;
+<span class="nocode"><a name="9">  9: </a></span>import java.util.Collection;
+<span class="nocode"><a name="10"> 10: </a></span>import java.util.HashMap;
+<span class="nocode"><a name="11"> 11: </a></span>import java.util.HashSet;
+<span class="nocode"><a name="12"> 12: </a></span>import java.util.LinkedList;
+<span class="nocode"><a name="13"> 13: </a></span>import java.util.regex.Matcher;
+<span class="nocode"><a name="14"> 14: </a></span>import java.util.regex.Pattern;
+<span class="nocode"><a name="15"> 15: </a></span>
+<span class="nocode"><a name="16"> 16: </a></span>import javax.swing.AbstractAction;
+<span class="nocode"><a name="17"> 17: </a></span>import javax.swing.JButton;
+<span class="nocode"><a name="18"> 18: </a></span>import javax.swing.JDialog;
+<span class="nocode"><a name="19"> 19: </a></span>import javax.swing.JFileChooser;
+<span class="nocode"><a name="20"> 20: </a></span>import javax.swing.JLabel;
+<span class="nocode"><a name="21"> 21: </a></span>import javax.swing.JPanel;
+<span class="nocode"><a name="22"> 22: </a></span>import javax.swing.JTextField;
+<span class="nocode"><a name="23"> 23: </a></span>import javax.swing.WindowConstants;
+<span class="nocode"><a name="24"> 24: </a></span>import javax.swing.filechooser.FileNameExtensionFilter;
+<span class="nocode"><a name="25"> 25: </a></span>
+<span class="nocode"><a name="26"> 26: </a></span>import net.sf.jabref.BibtexDatabase;
+<span class="nocode"><a name="27"> 27: </a></span>import net.sf.jabref.BibtexEntry;
+<span class="nocode"><a name="28"> 28: </a></span>import net.sf.jabref.Globals;
+<span class="nocode"><a name="29"> 29: </a></span>import net.sf.jabref.JabRefFileChooser;
+<span class="nocode"><a name="30"> 30: </a></span>import net.sf.jabref.JabRefPreferences;
+<span class="nocode"><a name="31"> 31: </a></span>import net.sf.jabref.imports.OpenDatabaseAction;
+<span class="nocode"><a name="32"> 32: </a></span>
+<span class="nocode"><a name="33"> 33: </a></span>@SuppressWarnings(&quot;serial&quot;)
+<span class="nocode"><a name="34"> 34: </a></span>public class ShrinkingDialog extends JDialog {
+<span class="nocode"><a name="35"> 35: </a></span>
+<span class="nocode"><a name="36"> 36: </a></span>	public static void init() {
+<span class="nocode"><a name="37"> 37: </a></span>		HashMap&lt;String, String&gt; bindings = new HashMap&lt;String, String&gt;();
+<span class="nocode"><a name="38"> 38: </a></span>		bindings.put(&quot;defaultEncoding&quot;, System.getProperty(&quot;file.encoding&quot;));
+<span class="nocode"><a name="39"> 39: </a></span>		bindings.put(&quot;overwriteOwner&quot;, Boolean.FALSE.toString());
+<span class="nocode"><a name="40"> 40: </a></span>		bindings.put(&quot;overwriteTimeStamp&quot;, Boolean.FALSE.toString());
+<span class="nocode"><a name="41"> 41: </a></span>		Globals.prefs = JabRefPreferences.getInstance();
+<span class="nocode"><a name="42"> 42: </a></span>		Globals.prefs.setNewKeyBindings(bindings);
+<span class="nocode"><a name="43"> 43: </a></span>	}
+<span class="nocode"><a name="44"> 44: </a></span>
+<span class="nocode"><a name="45"> 45: </a></span>	public ShrinkingDialog() {
+<span class="nocode"><a name="46"> 46: </a></span>		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+<span class="nocode"><a name="47"> 47: </a></span>		setTitle(&quot;Shrinking Database&quot;);
+<span class="nocode"><a name="48"> 48: </a></span>
+<span class="nocode"><a name="49"> 49: </a></span>		setLayout(new GridLayout(3, 2, 5, 5));
+<span class="nocode"><a name="50"> 50: </a></span>
+<span class="nocode"><a name="51"> 51: </a></span>		this.add(new JLabel(&quot;bib File&quot;));
+<span class="nocode"><a name="52"> 52: </a></span>		JPanel bibPathPanel = new JPanel();
+<span class="nocode"><a name="53"> 53: </a></span>		final JTextField bibPathText = new JTextField();
+<span class="nocode"><a name="54"> 54: </a></span>		bibPathText.setColumns(20);
+<span class="nocode"><a name="55"> 55: </a></span>		bibPathPanel.add(bibPathText);
+<span class="nocode"><a name="56"> 56: </a></span>		bibPathPanel.add(new JButton(new AbstractAction(&quot;Browse&quot;) {
+<span class="nocode"><a name="57"> 57: </a></span>
+<span class="nocode"><a name="58"> 58: </a></span>			@Override
+<span class="nocode"><a name="59"> 59: </a></span>			public void actionPerformed(ActionEvent e) {
+<span class="nocode"><a name="60"> 60: </a></span>				JabRefFileChooser fc = new JabRefFileChooser();
+<span class="nocode"><a name="61"> 61: </a></span>				fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+<span class="nocode"><a name="62"> 62: </a></span>				fc.setFileFilter(new FileNameExtensionFilter(&quot;Bib Files&quot;, &quot;bib&quot;));
+<span class="nocode"><a name="63"> 63: </a></span>				int returnVal = fc.showOpenDialog(null);
+<span class="nocode"><a name="64"> 64: </a></span>				if (returnVal == JFileChooser.APPROVE_OPTION) {
+<span class="nocode"><a name="65"> 65: </a></span>					File selectedFolder = fc.getSelectedFile();
+<span class="nocode"><a name="66"> 66: </a></span>					bibPathText.setText(selectedFolder.getPath());
+<span class="nocode"><a name="67"> 67: </a></span>
+<span class="nocode"><a name="68"> 68: </a></span>				}
+<span class="nocode"><a name="69"> 69: </a></span>			}
+<span class="nocode"><a name="70"> 70: </a></span>		}));
+<span class="nocode"><a name="71"> 71: </a></span>		this.add(bibPathPanel);
+<span class="nocode"><a name="72"> 72: </a></span>
+<span class="nocode"><a name="73"> 73: </a></span>		this.add(new JLabel(&quot;tex Folder&quot;));
+<span class="nocode"><a name="74"> 74: </a></span>		JPanel texPathPanel = new JPanel();
+<span class="nocode"><a name="75"> 75: </a></span>		final JTextField texPathText = new JTextField();
+<span class="nocode"><a name="76"> 76: </a></span>		texPathText.setColumns(20);
+<span class="nocode"><a name="77"> 77: </a></span>		texPathPanel.add(texPathText);
+<span class="nocode"><a name="78"> 78: </a></span>		texPathPanel.add(new JButton(new AbstractAction(&quot;Browse&quot;) {
+<span class="nocode"><a name="79"> 79: </a></span>
+<span class="nocode"><a name="80"> 80: </a></span>			@Override
+<span class="nocode"><a name="81"> 81: </a></span>			public void actionPerformed(ActionEvent e) {
+<span class="nocode"><a name="82"> 82: </a></span>				JabRefFileChooser fc = new JabRefFileChooser();
+<span class="nocode"><a name="83"> 83: </a></span>				fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+<span class="nocode"><a name="84"> 84: </a></span>				int returnVal = fc.showOpenDialog(null);
+<span class="nocode"><a name="85"> 85: </a></span>				if (returnVal == JFileChooser.APPROVE_OPTION) {
+<span class="nocode"><a name="86"> 86: </a></span>					File selectedFolder = fc.getSelectedFile();
+<span class="nocode"><a name="87"> 87: </a></span>					texPathText.setText(selectedFolder.getPath());
+<span class="nocode"><a name="88"> 88: </a></span>
+<span class="nocode"><a name="89"> 89: </a></span>				}
+<span class="nocode"><a name="90"> 90: </a></span>			}
+<span class="nocode"><a name="91"> 91: </a></span>		}));
+<span class="nocode"><a name="92"> 92: </a></span>		this.add(texPathPanel);
+<span class="nocode"><a name="93"> 93: </a></span>
+<span class="nocode"><a name="94"> 94: </a></span>		this.add(new JButton(new AbstractAction(&quot;Run&quot;) {
+<span class="nocode"><a name="95"> 95: </a></span>
+<span class="nocode"><a name="96"> 96: </a></span>			@Override
+<span class="nocode"><a name="97"> 97: </a></span>			public void actionPerformed(ActionEvent e) {
+<span class="nocode"><a name="98"> 98: </a></span>				String bibPath = bibPathText.getText();
+<span class="nocode"><a name="99"> 99: </a></span>				File bibFile = new File(bibPath);
+<span class="nocode"><a name="100">100: </a></span>				String bibName = bibFile.getName();
+<span class="nocode"><a name="101">101: </a></span>
+<span class="nocode"><a name="102">102: </a></span>				Collection&lt;String&gt; keys = collectKeysFromTexFiles(texPathText
+<span class="nocode"><a name="103">103: </a></span>						.getText());
+<span class="nocode"><a name="104">104: </a></span>				BibtexDatabase bib;
+<span class="nocode"><a name="105">105: </a></span>				try {
+<span class="nocode"><a name="106">106: </a></span>					bib = OpenDatabaseAction.loadDatabase(new File(bibPath),
+<span class="nocode"><a name="107">107: </a></span>							Globals.prefs.get(&quot;defaultEncoding&quot;)).getDatabase();
+<span class="nocode"><a name="108">108: </a></span>				} catch (IOException e1) {
+<span class="nocode"><a name="109">109: </a></span>					throw new RuntimeException(e1);
+<span class="nocode"><a name="110">110: </a></span>				}
+<span class="nocode"><a name="111">111: </a></span>				BibtexDatabase shrinkedBib = shrinkDatabase(keys, bib);
+<span class="nocode"><a name="112">112: </a></span>				String folderPath = bibFile.getParent();
+<span class="nocode"><a name="113">113: </a></span>				String fileName = bibName.substring(0, bibName.length() - 4);
+<span class="nocode"><a name="114">114: </a></span>				ConsolidatingDialog.writeBibDb(shrinkedBib, folderPath,
+<span class="nocode"><a name="115">115: </a></span>						fileName + &quot;_shrinked&quot;);
+<span class="nocode"><a name="116">116: </a></span>			}
+<span class="nocode"><a name="117">117: </a></span>		}));
+<span class="nocode"><a name="118">118: </a></span>
+<span class="nocode"><a name="119">119: </a></span>		this.add(new JButton(new AbstractAction(&quot;Close&quot;) {
+<span class="nocode"><a name="120">120: </a></span>
+<span class="nocode"><a name="121">121: </a></span>			@Override
+<span class="nocode"><a name="122">122: </a></span>			public void actionPerformed(ActionEvent e) {
+<span class="nocode"><a name="123">123: </a></span>				dispose();
+<span class="nocode"><a name="124">124: </a></span>			}
+<span class="nocode"><a name="125">125: </a></span>		}));
+<span class="nocode"><a name="126">126: </a></span>
+<span class="nocode"><a name="127">127: </a></span>		pack();
+<span class="nocode"><a name="128">128: </a></span>
+<span class="nocode"><a name="129">129: </a></span>	}
+<span class="nocode"><a name="130">130: </a></span>
+<span class="nocode"><a name="131">131: </a></span>	public BibtexDatabase shrinkDatabase(Collection&lt;String&gt; keys,
+<span class="nocode"><a name="132">132: </a></span>			BibtexDatabase bib) {
+<span class="nocode"><a name="133">133: </a></span>		keys = new LinkedList&lt;String&gt;(keys);
+<span class="nocode"><a name="134">134: </a></span>		BibtexDatabase shrinkedDb = new BibtexDatabase();
+<span class="nocode"><a name="135">135: </a></span>		for (String id : bib.getKeySet()) {
+<span class="nocode"><a name="136">136: </a></span>			BibtexEntry entry = bib.getEntryById(id);
+<span class="nocode"><a name="137">137: </a></span>			String key = entry.getCiteKey();
+<span class="nocode"><a name="138">138: </a></span>			if (keys.contains(key)) {
+<span class="nocode"><a name="139">139: </a></span>				BibtexEntry clone = (BibtexEntry) (entry.clone());
+<span class="nocode"><a name="140">140: </a></span>				shrinkedDb.insertEntry(clone);
+<span class="nocode"><a name="141">141: </a></span>				keys.remove(key);
+<span class="nocode"><a name="142">142: </a></span>			}
+<span class="nocode"><a name="143">143: </a></span>		}
+<span class="nocode"><a name="144">144: </a></span>		return shrinkedDb;
+<span class="nocode"><a name="145">145: </a></span>	}
+<span class="nocode"><a name="146">146: </a></span>
+<span class="nocode"><a name="147">147: </a></span>	public Collection&lt;String&gt; collectKeysFromTexFiles(String texFolderPath) {
+<span class="nocode"><a name="148">148: </a></span>		Collection&lt;String&gt; listOfKeys = new HashSet&lt;String&gt;();
+<span class="nocode"><a name="149">149: </a></span>		Collection&lt;File&gt; listOfFolders = new ArrayList&lt;File&gt;();
+<span class="nocode"><a name="150">150: </a></span>		listOfFolders.add(new File(texFolderPath));
+<span class="nocode"><a name="151">151: </a></span>		while (!listOfFolders.isEmpty()) {
+<span class="nocode"><a name="152">152: </a></span>			File folder = listOfFolders.iterator().next();
+<span class="nocode"><a name="153">153: </a></span>			listOfFolders.remove(folder);
+<span class="nocode"><a name="154">154: </a></span>
+<span class="nocode"><a name="155">155: </a></span>			File[] folderContent = folder.listFiles();
+<span class="nocode"><a name="156">156: </a></span>			for (File file : folderContent) {
+<span class="nocode"><a name="157">157: </a></span>				if (file.canRead()) {
+<span class="nocode"><a name="158">158: </a></span>					if (file.isDirectory() &amp;&amp; file.canExecute()) {
+<span class="nocode"><a name="159">159: </a></span>						listOfFolders.add(file);
+<span class="nocode"><a name="160">160: </a></span>					} else if (file.getName().endsWith(&quot;.tex&quot;)) {
+<span class="nocode"><a name="161">161: </a></span>						listOfKeys.addAll(extractKeys(file));
+<span class="nocode"><a name="162">162: </a></span>					} else {
+<span class="nocode"><a name="163">163: </a></span>						// not accessible folder or another type of file, do
+<span class="nocode"><a name="164">164: </a></span>						// nothing
+<span class="nocode"><a name="165">165: </a></span>					}
+<span class="nocode"><a name="166">166: </a></span>				} else {
+<span class="nocode"><a name="167">167: </a></span>					// not readable file, do nothing
+<span class="nocode"><a name="168">168: </a></span>				}
+<span class="nocode"><a name="169">169: </a></span>			}
+<span class="nocode"><a name="170">170: </a></span>		}
+<span class="nocode"><a name="171">171: </a></span>		return listOfKeys;
+<span class="nocode"><a name="172">172: </a></span>	}
+<span class="nocode"><a name="173">173: </a></span>
+<span class="nocode"><a name="174">174: </a></span>	public final static String REGEX = &quot;\\\\cite[pt]?\\s*\\{[^}]+\\}&quot;;
+<span class="nocode"><a name="175">175: </a></span>
+<span class="nocode"><a name="176">176: </a></span>	public Collection&lt;? extends String&gt; extractKeys(File texFile) {
+<span class="nocode"><a name="177">177: </a></span>		Collection&lt;String&gt; keys = new LinkedList&lt;String&gt;();
+<span class="nocode"><a name="178">178: </a></span>		StringBuffer buffer = new StringBuffer();
+<span class="nocode"><a name="179">179: </a></span>		String tex = null;
+<span class="nocode"><a name="180">180: </a></span>		try {
+<span class="nocode"><a name="181">181: </a></span>			FileInputStream in = new FileInputStream(texFile);
+<span class="nocode"><a name="182">182: </a></span>			int c = -1;
+<span class="nocode"><a name="183">183: </a></span>			do {
+<span class="nocode"><a name="184">184: </a></span>				if (c != -1) {
+<span class="nocode"><a name="185">185: </a></span>					buffer.append((char) c);
+<span class="nocode"><a name="186">186: </a></span>				}
+<span class="nocode"><a name="187">187: </a></span>				c = in.read();
+<span class="nocode"><a name="188">188: </a></span>			} while (c != -1);
+<span class="nocode"><a name="189">189: </a></span>			tex = buffer.toString();
+<span class="nocode"><a name="190">190: </a></span>		} catch (Exception e) {
+<span class="nocode"><a name="191">191: </a></span>			throw new RuntimeException(e);
+<span class="nocode"><a name="192">192: </a></span>		}
+<span class="nocode"><a name="193">193: </a></span>		Pattern p = Pattern.compile(REGEX);
+<span class="nocode"><a name="194">194: </a></span>		Matcher m = p.matcher(tex);
+<span class="nocode"><a name="195">195: </a></span>		while (m.find()) {
+<span class="nocode"><a name="196">196: </a></span>			String cite = tex.substring(m.start(), m.end());
+<span class="nocode"><a name="197">197: </a></span>			keys.add(cite.substring(cite.indexOf('{') + 1, cite.length() - 1));
+<span class="nocode"><a name="198">198: </a></span>		}
+<span class="nocode"><a name="199">199: </a></span>		return keys;
+<span class="nocode"><a name="200">200: </a></span>	}
+<span class="nocode"><a name="201">201: </a></span>
+<span class="nocode"><a name="202">202: </a></span>	/**
+<span class="nocode"><a name="203">203: </a></span>	 * @param args
+<span class="nocode"><a name="204">204: </a></span>	 */
+<span class="nocode"><a name="205">205: </a></span>	public static void main(String[] args) {
+<span class="nocode"><a name="206">206: </a></span>		init();
+<span class="nocode"><a name="207">207: </a></span>		new ShrinkingDialog().setVisible(true);
+<span class="nocode"><a name="208">208: </a></span>	}
+<span class="nocode"><a name="209">209: </a></span>
+<span class="nocode"><a name="210">210: </a></span>}
+</pre><table class="mutation_table" summary="Mutations">
+<tr><th>ID</th><th>Line</th><th>Type</th><th>Detected</th></tr><tr><td>1</td><td><a href="#38">38</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>2</td><td><a href="#38">38(1)</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>3</td><td><a href="#39">39</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>4</td><td><a href="#39">39(1)</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>5</td><td><a href="#40">40</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>6</td><td><a href="#40">40(1)</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>7</td><td><a href="#41">41</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>8</td><td><a href="#42">42</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>11</td><td><a href="#46">46</a></td><td>Replace a constant (Replace 2 with 0(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>10</td><td><a href="#46">46</a></td><td>Replace a constant (Replace 2 with 1(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>9</td><td><a href="#46">46</a></td><td>Replace a constant (Replace 2 with 3(INT))</td><td><img src="detected.png"/></td></tr>
+<tr><td>12</td><td><a href="#46">46</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>13</td><td><a href="#47">47</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>15</td><td><a href="#49">49</a></td><td>Replace a constant (Replace 3 with 0(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>16</td><td><a href="#49">49</a></td><td>Replace a constant (Replace 3 with 4(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>14</td><td><a href="#49">49</a></td><td>Replace a constant (Replace 3 with 2(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>19</td><td><a href="#49">49(1)</a></td><td>Replace a constant (Replace 2 with 0(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>17</td><td><a href="#49">49(1)</a></td><td>Replace a constant (Replace 2 with 3(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>18</td><td><a href="#49">49(1)</a></td><td>Replace a constant (Replace 2 with 1(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>21</td><td><a href="#49">49(2)</a></td><td>Replace a constant (Replace 5 with 6(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>20</td><td><a href="#49">49(2)</a></td><td>Replace a constant (Replace 5 with 0(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>22</td><td><a href="#49">49(2)</a></td><td>Replace a constant (Replace 5 with 4(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>25</td><td><a href="#49">49(3)</a></td><td>Replace a constant (Replace 5 with 4(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>23</td><td><a href="#49">49(3)</a></td><td>Replace a constant (Replace 5 with 0(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>24</td><td><a href="#49">49(3)</a></td><td>Replace a constant (Replace 5 with 6(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>26</td><td><a href="#49">49</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>27</td><td><a href="#51">51</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>28</td><td><a href="#54">54</a></td><td>Replace a constant (Replace 20 with 21(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>29</td><td><a href="#54">54</a></td><td>Replace a constant (Replace 20 with 0(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>30</td><td><a href="#54">54</a></td><td>Replace a constant (Replace 20 with 19(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>31</td><td><a href="#54">54</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>32</td><td><a href="#55">55</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>33</td><td><a href="#56">56</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>116</td><td><a href="#61">61</a></td><td>Replace a constant (Replace 0 with -1(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>115</td><td><a href="#61">61</a></td><td>Replace a constant (Replace 0 with 1(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>117</td><td><a href="#61">61</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>119</td><td><a href="#62">62</a></td><td>Replace a constant (Replace 1 with 0(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>118</td><td><a href="#62">62</a></td><td>Replace a constant (Replace 1 with 2(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>120</td><td><a href="#62">62(1)</a></td><td>Replace a constant (Replace 0 with 1(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>121</td><td><a href="#62">62(1)</a></td><td>Replace a constant (Replace 0 with -1(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>122</td><td><a href="#62">62</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>123</td><td><a href="#63">63</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>124</td><td><a href="#64">64</a></td><td>Negate jump condition (Replace IFNE with  IFEQ)</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>125</td><td><a href="#65">65</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>126</td><td><a href="#66">66</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>127</td><td><a href="#66">66(1)</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>34</td><td><a href="#71">71</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>35</td><td><a href="#73">73</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>37</td><td><a href="#76">76</a></td><td>Replace a constant (Replace 20 with 0(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>36</td><td><a href="#76">76</a></td><td>Replace a constant (Replace 20 with 21(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>38</td><td><a href="#76">76</a></td><td>Replace a constant (Replace 20 with 19(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>39</td><td><a href="#76">76</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>40</td><td><a href="#77">77</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>41</td><td><a href="#78">78</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>129</td><td><a href="#83">83</a></td><td>Replace a constant (Replace 1 with 0(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>128</td><td><a href="#83">83</a></td><td>Replace a constant (Replace 1 with 2(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>130</td><td><a href="#83">83</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>131</td><td><a href="#84">84</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>132</td><td><a href="#85">85</a></td><td>Negate jump condition (Replace IFNE with  IFEQ)</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>133</td><td><a href="#86">86</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>134</td><td><a href="#87">87</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>135</td><td><a href="#87">87(1)</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>42</td><td><a href="#92">92</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>43</td><td><a href="#94">94</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>136</td><td><a href="#98">98</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>137</td><td><a href="#100">100</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>139</td><td><a href="#102">102</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>138</td><td><a href="#103">103</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>141</td><td><a href="#106">106</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>140</td><td><a href="#107">107</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>142</td><td><a href="#107">107(1)</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>143</td><td><a href="#111">111</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>144</td><td><a href="#112">112</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>145</td><td><a href="#113">113</a></td><td>Replace a constant (Replace 0 with 1(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>146</td><td><a href="#113">113</a></td><td>Replace a constant (Replace 0 with -1(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>148</td><td><a href="#113">113(1)</a></td><td>Replace a constant (Replace 4 with 3(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>149</td><td><a href="#113">113(1)</a></td><td>Replace a constant (Replace 4 with 0(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>150</td><td><a href="#113">113(1)</a></td><td>Replace a constant (Replace 4 with 5(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>151</td><td><a href="#113">113</a></td><td>Replace arithmetic operator (Replace ISUB with IADD)</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>147</td><td><a href="#113">113</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>152</td><td><a href="#113">113(1)</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>156</td><td><a href="#114">114</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>153</td><td><a href="#115">115</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>154</td><td><a href="#115">115(1)</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>155</td><td><a href="#115">115(2)</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>44</td><td><a href="#119">119</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>157</td><td><a href="#123">123</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>45</td><td><a href="#127">127</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>57</td><td><a href="#135">135</a></td><td>Negate jump condition (Replace IFNE with  IFEQ)</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>46</td><td><a href="#135">135</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>47</td><td><a href="#135">135(1)</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>48</td><td><a href="#135">135(2)</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>56</td><td><a href="#135">135(3)</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>49</td><td><a href="#136">136</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>50</td><td><a href="#137">137</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>52</td><td><a href="#138">138</a></td><td>Negate jump condition (Replace IFEQ with  IFNE)</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>51</td><td><a href="#138">138</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>53</td><td><a href="#139">139</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>54</td><td><a href="#140">140</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>55</td><td><a href="#141">141</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>58</td><td><a href="#150">150</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>79</td><td><a href="#151">151</a></td><td>Negate jump condition (Replace IFEQ with  IFNE)</td><td><img src="detected.png"/></td></tr>
+<tr><td>78</td><td><a href="#151">151</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>59</td><td><a href="#152">152</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>60</td><td><a href="#152">152(1)</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>61</td><td><a href="#153">153</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>62</td><td><a href="#155">155</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>63</td><td><a href="#156">156</a></td><td>Replace a constant (Replace 0 with 1(INT))</td><td><img src="detected.png"/></td></tr>
+<tr><td>64</td><td><a href="#156">156</a></td><td>Replace a constant (Replace 0 with -1(INT))</td><td><img src="detected.png"/></td></tr>
+<tr><td>77</td><td><a href="#156">156</a></td><td>Negate jump condition (Replace IF_ICMPLT with  IF_ICMPGE)</td><td><img src="detected.png"/></td></tr>
+<tr><td>66</td><td><a href="#157">157</a></td><td>Negate jump condition (Replace IFEQ with  IFNE)</td><td><img src="detected.png"/></td></tr>
+<tr><td>65</td><td><a href="#157">157</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>68</td><td><a href="#158">158</a></td><td>Negate jump condition (Replace IFEQ with  IFNE)</td><td><img src="detected.png"/></td></tr>
+<tr><td>70</td><td><a href="#158">158(1)</a></td><td>Negate jump condition (Replace IFEQ with  IFNE)</td><td><img src="detected.png"/></td></tr>
+<tr><td>67</td><td><a href="#158">158</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>69</td><td><a href="#158">158(1)</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>71</td><td><a href="#159">159</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>74</td><td><a href="#160">160</a></td><td>Negate jump condition (Replace IFEQ with  IFNE)</td><td><img src="detected.png"/></td></tr>
+<tr><td>72</td><td><a href="#160">160</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>73</td><td><a href="#160">160(1)</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>75</td><td><a href="#161">161</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>76</td><td><a href="#161">161(1)</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>80</td><td><a href="#182">182</a></td><td>Replace a constant (Replace -1 with 0(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>81</td><td><a href="#182">182</a></td><td>Replace a constant (Replace -1 with -2(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>82</td><td><a href="#184">184</a></td><td>Replace a constant (Replace -1 with 0(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>83</td><td><a href="#184">184</a></td><td>Replace a constant (Replace -1 with -2(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>84</td><td><a href="#184">184</a></td><td>Negate jump condition (Replace IF_ICMPEQ with  IF_ICMPNE)</td><td><img src="detected.png"/></td></tr>
+<tr><td>85</td><td><a href="#185">185</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>86</td><td><a href="#187">187</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>88</td><td><a href="#188">188</a></td><td>Replace a constant (Replace -1 with -2(INT))</td><td><img src="detected.png"/></td></tr>
+<tr><td>87</td><td><a href="#188">188</a></td><td>Replace a constant (Replace -1 with 0(INT))</td><td><img src="detected.png"/></td></tr>
+<tr><td>89</td><td><a href="#188">188</a></td><td>Negate jump condition (Replace IF_ICMPNE with  IF_ICMPEQ)</td><td><img src="detected.png"/></td></tr>
+<tr><td>90</td><td><a href="#189">189</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>91</td><td><a href="#193">193</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>92</td><td><a href="#194">194</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>110</td><td><a href="#195">195</a></td><td>Negate jump condition (Replace IFNE with  IFEQ)</td><td><img src="detected.png"/></td></tr>
+<tr><td>109</td><td><a href="#195">195</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>93</td><td><a href="#196">196</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>94</td><td><a href="#196">196(1)</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>95</td><td><a href="#196">196(2)</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>98</td><td><a href="#197">197</a></td><td>Replace a constant (Replace 123 with 124(INT))</td><td><img src="detected.png"/></td></tr>
+<tr><td>96</td><td><a href="#197">197</a></td><td>Replace a constant (Replace 123 with 0(INT))</td><td><img src="detected.png"/></td></tr>
+<tr><td>97</td><td><a href="#197">197</a></td><td>Replace a constant (Replace 123 with 122(INT))</td><td><img src="detected.png"/></td></tr>
+<tr><td>100</td><td><a href="#197">197(1)</a></td><td>Replace a constant (Replace 1 with 2(INT))</td><td><img src="detected.png"/></td></tr>
+<tr><td>101</td><td><a href="#197">197(1)</a></td><td>Replace a constant (Replace 1 with 0(INT))</td><td><img src="detected.png"/></td></tr>
+<tr><td>104</td><td><a href="#197">197(2)</a></td><td>Replace a constant (Replace 1 with 2(INT))</td><td><img src="detected.png"/></td></tr>
+<tr><td>105</td><td><a href="#197">197(2)</a></td><td>Replace a constant (Replace 1 with 0(INT))</td><td><img src="detected.png"/></td></tr>
+<tr><td>102</td><td><a href="#197">197</a></td><td>Replace arithmetic operator (Replace IADD with ISUB)</td><td><img src="detected.png"/></td></tr>
+<tr><td>106</td><td><a href="#197">197(1)</a></td><td>Replace arithmetic operator (Replace ISUB with IADD)</td><td><img src="detected.png"/></td></tr>
+<tr><td>99</td><td><a href="#197">197</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>103</td><td><a href="#197">197(1)</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>107</td><td><a href="#197">197(2)</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>108</td><td><a href="#197">197(3)</a></td><td>Remove method call</td><td><img src="detected.png"/></td></tr>
+<tr><td>111</td><td><a href="#206">206</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>113</td><td><a href="#207">207</a></td><td>Replace a constant (Replace 1 with 0(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>112</td><td><a href="#207">207</a></td><td>Replace a constant (Replace 1 with 2(INT))</td><td><img src="not_detected.png"/></td></tr>
+<tr><td>114</td><td><a href="#207">207</a></td><td>Remove method call</td><td><img src="not_detected.png"/></td></tr>
+</table>
+</body>
+</html>

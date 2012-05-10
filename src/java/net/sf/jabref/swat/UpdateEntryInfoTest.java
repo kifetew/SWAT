@@ -1,11 +1,9 @@
 package net.sf.jabref.swat;
 
 import static org.junit.Assert.*;
-
 import net.sf.jabref.BibtexEntry;
 import net.sf.jabref.Globals;
 import net.sf.jabref.JabRefPreferences;
-import net.sf.jabref.swat.UpdateEntryInfo;
 
 import org.junit.BeforeClass;
 import org.junit.Test;

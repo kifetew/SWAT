@@ -1,0 +1,66 @@
+Testsuite: de.unisb.cs.st.javalanche.mutation.runtime.testDriver.junit.JavalancheWrapperTestSuite
+Tests run: 0, Failures: 0, Errors: 0, Time elapsed: 34.247 sec
+------------- Standard Output ---------------
+Applying 1th mutation with id 63. Running 1 tests
+Applying 2th mutation with id 64. Running 1 tests
+Applying 3th mutation with id 65. Running 1 tests
+Applying 4th mutation with id 66. Running 1 tests
+Applying 5th mutation with id 67. Running 1 tests
+Applying 6th mutation with id 68. Running 1 tests
+Applying 7th mutation with id 69. Running 1 tests
+Applying 8th mutation with id 70. Running 1 tests
+Applying 9th mutation with id 71. Running 1 tests
+Applying 10th mutation with id 72. Running 1 tests
+Applying 11th mutation with id 73. Running 1 tests
+Applying 12th mutation with id 74. Running 1 tests
+Applying 13th mutation with id 75. Running 1 tests
+Applying 14th mutation with id 76. Running 1 tests
+Applying 15th mutation with id 77. Running 1 tests
+Applying 16th mutation with id 78. Running 1 tests
+Applying 17th mutation with id 79. Running 1 tests
+Applying 18th mutation with id 80. Running 2 tests
+Applying 19th mutation with id 81. Running 2 tests
+Applying 20th mutation with id 82. Running 2 tests
+Applying 21th mutation with id 83. Running 2 tests
+Applying 22th mutation with id 84. Running 2 tests
+Applying 23th mutation with id 85. Running 2 tests
+Applying 24th mutation with id 86. Running 2 tests
+Applying 25th mutation with id 87. Running 2 tests
+Applying 26th mutation with id 88. Running 2 tests
+Applying 27th mutation with id 89. Running 2 tests
+Applying 28th mutation with id 90. Running 2 tests
+Applying 29th mutation with id 91. Running 2 tests
+Applying 30th mutation with id 92. Running 2 tests
+Applying 31th mutation with id 93. Running 2 tests
+Applying 32th mutation with id 94. Running 2 tests
+Applying 33th mutation with id 95. Running 2 tests
+Applying 34th mutation with id 96. Running 2 tests
+Applying 35th mutation with id 97. Running 2 tests
+Applying 36th mutation with id 98. Running 2 tests
+Applying 37th mutation with id 99. Running 2 tests
+Applying 38th mutation with id 100. Running 2 tests
+Applying 39th mutation with id 101. Running 2 tests
+Applying 40th mutation with id 102. Running 2 tests
+Applying 41th mutation with id 103. Running 2 tests
+Applying 42th mutation with id 104. Running 2 tests
+Applying 43th mutation with id 105. Running 2 tests
+Applying 44th mutation with id 106. Running 2 tests
+Applying 45th mutation with id 107. Running 2 tests
+Applying 46th mutation with id 108. Running 2 tests
+Applying 47th mutation with id 109. Running 2 tests
+Applying 48th mutation with id 110. Running 2 tests
+ALL_RESULTS
+All mutations have results - this means they have already been applied and executed
+48 mutations were applied. 48 Mutation results were recorded. 48 Mutations where actually touched.
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+Exception in thread "AWT-XAWT" java.lang.IllegalMonitorStateException
+	at java.util.concurrent.locks.ReentrantLock$Sync.tryRelease(ReentrantLock.java:155)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.release(AbstractQueuedSynchronizer.java:1262)
+	at java.util.concurrent.locks.ReentrantLock.unlock(ReentrantLock.java:459)
+	at sun.awt.SunToolkit.awtUnlock(SunToolkit.java:272)
+	at sun.awt.X11.XToolkit.run(XToolkit.java:616)
+	at sun.awt.X11.XToolkit.run(XToolkit.java:543)
+	at java.lang.Thread.run(Thread.java:679)
+------------- ---------------- ---------------
+
