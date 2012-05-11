@@ -32,5 +32,7 @@
 	<classpathentry kind="lib" path="lib/spl/jersey/mimepull-1.3.jar"/>
 	<classpathentry kind="lib" path="lib/spl/sciplore/SciPloreDBAccess.jar"/>
 	<classpathentry kind="lib" path="lib/spl/bindings.jar"/>
+	<classpathentry kind="var" path="FIT_LIB"/>
+	<classpathentry kind="var" path="FITNESSE_LIB" sourcepath="FITNESSE_LIB_SRC"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

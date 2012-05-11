@@ -218,6 +218,9 @@ public class ConsolidatingDialog extends JDialog {
 			listOfFolders.remove(folder);
 
 			File[] folderContent = folder.listFiles();
+			if (true) {
+				throw new RuntimeException(System.getProperty("user.dir"));
+			}
 			for (File file : folderContent) {
 				if (file.canRead()) {
 					if (file.isDirectory() && file.canExecute()) {
