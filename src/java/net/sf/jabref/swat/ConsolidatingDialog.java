@@ -42,7 +42,6 @@ public class ConsolidatingDialog extends JDialog {
 		new ConsolidatingDialog().setVisible(true);
 	}
 
-	
 	public static void init() {
 		HashMap<String, String> bindings = new HashMap<String, String>();
 		bindings.put("defaultEncoding", System.getProperty("file.encoding"));
@@ -51,7 +50,7 @@ public class ConsolidatingDialog extends JDialog {
 		Globals.prefs = JabRefPreferences.getInstance();
 		Globals.prefs.setNewKeyBindings(bindings);
 	}
-	
+
 	public ConsolidatingDialog() {
 		setLayout(new GridLayout(4, 3, 5, 5));
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -115,10 +114,8 @@ public class ConsolidatingDialog extends JDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				File[] bibFiles = searchBibFiles(inputFolderNameLabel.getText());
-				BibtexDatabase mergedBibDb = mergeBibFiles(bibFiles);
-				BibtexDatabase cleanedBibDb = removeDuplicates(mergedBibDb);
-				writeBibDb(cleanedBibDb, outputFolderNameLabel.getText(),
+				consolidate(inputFolderNameLabel.getText(),
+						outputFolderNameLabel.getText(),
 						outputFileNameText.getText());
 			}
 		};
@@ -137,8 +134,17 @@ public class ConsolidatingDialog extends JDialog {
 		pack();
 	}
 
+	public void consolidate(final String inputFolderName,
+			final String outputFolderName, final String outputFileName) {
+		File[] bibFiles = searchBibFiles(inputFolderName);
+		BibtexDatabase mergedBibDb = mergeBibFiles(bibFiles);
+		BibtexDatabase cleanedBibDb = removeDuplicates(mergedBibDb);
+		writeBibDb(cleanedBibDb, outputFolderName, outputFileName);
+	}
+
 	public BibtexDatabase removeDuplicates(BibtexDatabase db) {
-		Collection<BibtexEntry> entries = new LinkedList<BibtexEntry>(db.getEntries());
+		Collection<BibtexEntry> entries = new LinkedList<BibtexEntry>(
+				db.getEntries());
 		LinkedList<String> knownKeys = new LinkedList<String>();
 		for (BibtexEntry entry : entries) {
 			String key = entry.getCiteKey();
@@ -151,12 +157,17 @@ public class ConsolidatingDialog extends JDialog {
 		return db;
 	}
 
-	public static void writeBibDb(BibtexDatabase cleanedBibDb, String folderPath,
-			String filename) {
+	public static void writeBibDb(BibtexDatabase cleanedBibDb,
+			String folderPath, String filename) {
 		try {
-			MetaData metadata = new MetaData(new HashMap<String, String>() , cleanedBibDb);
-			FileActions.saveDatabase(cleanedBibDb, metadata , new File (folderPath + File.separatorChar + filename + ".bib"),
-			        Globals.prefs, false, false, Globals.prefs.get("defaultEncoding"), false).commit();
+			MetaData metadata = new MetaData(new HashMap<String, String>(),
+					cleanedBibDb);
+			FileActions.saveDatabase(
+					cleanedBibDb,
+					metadata,
+					new File(folderPath + File.separatorChar + filename
+							+ ".bib"), Globals.prefs, false, false,
+					Globals.prefs.get("defaultEncoding"), false).commit();
 		} catch (SaveException e) {
 			throw new RuntimeException(e);
 		}
@@ -166,11 +177,12 @@ public class ConsolidatingDialog extends JDialog {
 		BibtexDatabase completeDb = null;
 		for (File file : bibFiles) {
 			try {
-				ParserResult parserResult = OpenDatabaseAction.loadDatabase(file,
-						Globals.prefs.get("defaultEncoding"));
+				ParserResult parserResult = OpenDatabaseAction.loadDatabase(
+						file, Globals.prefs.get("defaultEncoding"));
 				BibtexDatabase db = parserResult.getDatabase();
-//				HashMap<String,String> metaData = parserResult.getMetaData();
-				//TODO pass metaData back so that it's not lost when writing bib to file
+				// HashMap<String,String> metaData = parserResult.getMetaData();
+				// TODO pass metaData back so that it's not lost when writing
+				// bib to file
 				if (completeDb == null) {
 					completeDb = db;
 				} else {
