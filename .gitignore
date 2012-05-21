@@ -5,3 +5,5 @@ build.number
 src/resource/build.properties
 Fitnesse/*/*.zip
 Fitnesse/*/*/*.zip
+mutation-*
+Fitnesse/ErrorLogs

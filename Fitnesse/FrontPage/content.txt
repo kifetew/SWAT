@@ -1,5 +1,10 @@
 !c !3 Welcome to the Wonderful World of !-FitNesse-!!
 
+| !-fixtures.ConsolidatingDialogFixture-! |
+| input_dir | output_dir | output_filename | expected_filename | result? |
+| /home/fitsum/workspace2/Jabref/test_run | /home/fitsum/workspace2/Jabref/fitnesse_test | reconciled.bib | /home/fitsum/workspace2/Jabref/fitnesse_test/expected_correct.bib | true |
+| /home/fitsum/workspace2/Jabref/test_run | /home/fitsum/workspace2/Jabref/fitnesse_test | reconciled.bib | /home/fitsum/workspace2/Jabref/fitnesse_test/expected_wrong.bib | false |
+
 | !-fixtures.ConsolidatingDialogFixture2-! |
 | entry1 | entry2 | entry3 | file1 | file2 | amount1? | amount2? | amount3? |
 | !-1|name=value-! | !-2|name=value|name2=value2-! | !-3|name=value-! | !-1-! | !-null-! | 1 | 0 | 0 |
