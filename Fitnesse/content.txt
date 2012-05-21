@@ -1,31 +1,33 @@
 
 
 '''START Auto-generated Eclipse Classpath'''
-!path /disk1/fitsum/home/workspace2/Jabref/lib/mysql-connector-java-5.0.7-bin.jar
-!path /disk0/programs/eclipse/plugins/com.bandxi.fitnesse.launcher_1.0.2/lib/fitlibrary.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/spl/jersey/jersey-client-1.1.5.1.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/glazedlists-1.7.0_java15.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/spl/jersey/jersey-core-1.1.5.1.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/plugin/commons-logging.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/JempBox-0.2.0.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/plugin/jpf-boot.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/microba.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/forms-1.1.0.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/antlr.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/spl/bindings.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/spl/jersey/jsr311-api-1.1.1.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/junit.jar
-!path /disk0/programs/eclipse/plugins/com.bandxi.fitnesse.launcher_1.0.2/lib/fitnesse.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/spl/sciplore/SciPloreDBAccess.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/plugin/JPFCodeGenerator-rt.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/spin.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/PDFBox-0.7.3-dev-reduced.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/spl/jersey/jersey-multipart-1.1.5.1.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/plugin/jpf.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/antlr-3.0b5.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/spl/jersey/mimepull-1.3.jar
-!path /disk1/fitsum/home/workspace2/Jabref/lib/looks-2.3.1.jar
-!path /disk1/fitsum/home/workspace2/Jabref/bin
+!path /home/vergne/workspace/SWAT/lib/spl/sciplore/SciPloreDBAccess.jar
+!path /home/vergne/workspace/SWAT/lib/spl/jersey/jsr311-api-1.1.1.jar
+!path /home/vergne/workspace/SWAT/lib/spl/jersey/jersey-multipart-1.1.5.1.jar
+!path /home/vergne/workspace/SWAT/lib/spl/jersey/jersey-client-1.1.5.1.jar
+!path /home/vergne/workspace/SWAT/lib/forms-1.1.0.jar
+!path /home/vergne/.eclipse/org.eclipse.platform_3.7.0_155965261/plugins/com.bandxi.fitnesse.launcher_1.0.2/lib/fitlibrary.jar
+!path /home/vergne/workspace/SWAT/lib/microba.jar
+!path /home/vergne/workspace/SWAT/lib/plugin/commons-logging.jar
+!path /home/vergne/workspace/SWAT/lib/spl/jersey/mimepull-1.3.jar
+!path /home/vergne/.eclipse/org.eclipse.platform_3.7.0_155965261/plugins/com.bandxi.fitnesse.launcher_1.0.2/lib/fitnesse.jar
+!path /home/vergne/workspace/SWAT/lib/PDFBox-0.7.3-dev-reduced.jar
+!path /home/vergne/workspace/SWAT/lib/antlr.jar
+!path /home/vergne/workspace/SWAT/lib/antlr-3.0b5.jar
+!path /home/vergne/workspace/SWAT/lib/plugin/JPFCodeGenerator-rt.jar
+!path /home/vergne/workspace/SWAT/lib/spin.jar
+!path /home/vergne/workspace/SWAT/lib/JempBox-0.2.0.jar
+!path /home/vergne/workspace/SWAT/bin
+!path /home/vergne/workspace/SWAT/lib/spl/bindings.jar
+!path /home/vergne/workspace/SWAT/lib/junit.jar
+!path /home/vergne/workspace/SWAT/lib/spl/jersey/jersey-core-1.1.5.1.jar
+!path /home/vergne/workspace/SWAT/lib/mysql-connector-java-5.0.7-bin.jar
+!path /home/vergne/workspace/SWAT/lib/plugin/jpf.jar
+!path /home/vergne/workspace/SWAT/lib/glazedlists-1.7.0_java15.jar
+!path /home/vergne/workspace/SWAT/lib/plugin/jpf-boot.jar
+!path /home/vergne/workspace/SWAT/lib/looks-2.3.1.jar
 '''END Auto-generated Eclipse Classpath'''
+
+
 
 

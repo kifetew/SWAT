@@ -3,4 +3,5 @@ build/
 .clover/
 build.number
 src/resource/build.properties
-
+Fitnesse/*/*.zip
+Fitnesse/*/*/*.zip

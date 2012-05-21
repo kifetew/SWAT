@@ -167,7 +167,7 @@ public class ConsolidatingDialog extends JDialog {
 					metadata,
 					new File(folderPath + File.separatorChar + filename
 							+ ".bib"), Globals.prefs, false, false,
-					Globals.prefs.get("defaultEncoding"), false).commit();
+					Globals.prefs.get("defaultEncoding"), true).commit();
 		} catch (SaveException e) {
 			throw new RuntimeException(e);
 		}
@@ -218,9 +218,6 @@ public class ConsolidatingDialog extends JDialog {
 			listOfFolders.remove(folder);
 
 			File[] folderContent = folder.listFiles();
-			if (true) {
-				throw new RuntimeException(System.getProperty("user.dir"));
-			}
 			for (File file : folderContent) {
 				if (file.canRead()) {
 					if (file.isDirectory() && file.canExecute()) {
