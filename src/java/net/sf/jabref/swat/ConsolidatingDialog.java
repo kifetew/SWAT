@@ -52,6 +52,7 @@ public class ConsolidatingDialog extends JDialog {
 	}
 
 	public ConsolidatingDialog() {
+		init();
 		setLayout(new GridLayout(4, 3, 5, 5));
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setTitle("Consolidate Database");
@@ -218,9 +219,9 @@ public class ConsolidatingDialog extends JDialog {
 			listOfFolders.remove(folder);
 
 			File[] folderContent = folder.listFiles();
-			if (true) {
-				throw new RuntimeException(System.getProperty("user.dir"));
-			}
+//			if (true) {
+//				throw new RuntimeException(System.getProperty("user.dir"));
+//			}
 			for (File file : folderContent) {
 				if (file.canRead()) {
 					if (file.isDirectory() && file.canExecute()) {
