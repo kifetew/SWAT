@@ -1,13 +1,6 @@
 !c !3 Welcome to the Wonderful World of !-FitNesse-!!
 
 | !-fixtures.ShrinkingDialogFixture-! |
-| tex | keys? |
-| {{{!-Bla bla bla \cite{x} bla bla \cite{y}
-Bla bla bla \cite{x} bla bla
-\cite{a} bla bla \cite{b}
-
-Bla bla bla \cite
-{c} bla bla
-
-Bla bla bla \cite {d} bla bla
--!}}} | a,b,c,d,x,y |
+| unshrinked_bib | tex_dir | shrinked_bib | result? |
+| fitnesse_test/initialBib.bib | fitnesse_test | fitnesse_test/initialBib_shrinked.bib | true |
+| fitnesse_test/initialBib.bib | fitnesse_test | fitnesse_test/initialBib_shrinked_wrong.bib | false |

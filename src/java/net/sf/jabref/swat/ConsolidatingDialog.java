@@ -52,7 +52,6 @@ public class ConsolidatingDialog extends JDialog {
 	}
 
 	public ConsolidatingDialog() {
-		init();
 		setLayout(new GridLayout(4, 3, 5, 5));
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setTitle("Consolidate Database");

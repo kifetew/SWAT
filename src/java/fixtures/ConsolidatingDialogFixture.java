@@ -26,6 +26,7 @@ public class ConsolidatingDialogFixture extends ColumnFixture {
 		}
 		
 		ConsolidatingDialog dialog = new ConsolidatingDialog();
+		ConsolidatingDialog.init();
 		dialog.consolidate(input_dir, output_dir, output_filename);
 
 		// TODO comparison based on Citation Keys, enough ??
