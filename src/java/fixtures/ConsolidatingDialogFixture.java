@@ -19,6 +19,12 @@ public class ConsolidatingDialogFixture extends ColumnFixture {
 	public String result;
 
 	public boolean result() throws Exception {
+		
+		if (!new File (input_dir).exists() || !new File (input_dir).isDirectory()
+				|| !new File (output_dir).exists() || !new File (output_dir).isDirectory()){
+			throw new RuntimeException("Make sure input_dir/output_dir is in your home directory.");
+		}
+		
 		ConsolidatingDialog dialog = new ConsolidatingDialog();
 		dialog.consolidate(input_dir, output_dir, output_filename);
 

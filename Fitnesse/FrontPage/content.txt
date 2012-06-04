@@ -2,8 +2,8 @@
 
 | !-fixtures.ConsolidatingDialogFixture-! |
 | input_dir | output_dir | output_filename | expected_filename | result? |
-| /home/fitsum/workspace2/Jabref/test_run | /home/fitsum/workspace2/Jabref/fitnesse_test | reconciled.bib | /home/fitsum/workspace2/Jabref/fitnesse_test/expected_correct.bib | true |
-| /home/fitsum/workspace2/Jabref/test_run | /home/fitsum/workspace2/Jabref/fitnesse_test | reconciled.bib | /home/fitsum/workspace2/Jabref/fitnesse_test/expected_wrong.bib | false |
+| test_run | fitnesse_test | reconciled.bib | fitnesse_test/expected_correct.bib | true |
+| test_run | fitnesse_test | reconciled.bib | fitnesse_test/expected_wrong.bib | false |
 
 | !-fixtures.ConsolidatingDialogFixture2-! |
 | entry1 | entry2 | entry3 | file1 | file2 | amount1? | amount2? | amount3? |
