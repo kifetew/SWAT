@@ -1,0 +1,13 @@
+!c !3 Welcome to the Wonderful World of !-FitNesse-!!
+
+| !-fixtures.ShrinkingDialogFixture-! |
+| tex | keys? |
+| {{{!-Bla bla bla \cite{x} bla bla \cite{y}
+Bla bla bla \cite{x} bla bla
+\cite{a} bla bla \cite{b}
+
+Bla bla bla \cite
+{c} bla bla
+
+Bla bla bla \cite {d} bla bla
+-!}}} | a,b,c,d,x,y |
