@@ -1,4 +1,4 @@
-!c !3 Welcome to the Wonderful World of !-FitNesse-!!
+!c !2 Shrinking Process
 
 | !-fixtures.ShrinkingDialogFixture-! |
 | unshrinked_bib | tex_dir | shrinked_bib | result? |

@@ -1,9 +1,8 @@
+|ShrinkingProcess||17:16:24 Mon, Jun 04, 2012|
 <<<<<<< HEAD
-|ShrinkingProcess||16:33:46 Mon, Jun 04, 2012|
 |FrontPage||15:21:41 Mon, Jun 04, 2012|
 |ConsolidatingProcess||15:16:23 Mon, Jun 04, 2012|
 =======
 |FrontPage||16:21:59 Mon, Jun 04, 2012|
 |ConsolidatingProcess||16:15:28 Mon, Jun 04, 2012|
-|ShrinkingProcess||15:46:47 Mon, Jun 04, 2012|
 >>>>>>> 2a86e6baa5a7965c10f507ca0aa4901a69ca453c
