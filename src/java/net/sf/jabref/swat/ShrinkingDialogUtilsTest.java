@@ -25,7 +25,7 @@ public class ShrinkingDialogUtilsTest {
 
 	@Test
 	public void testExtractKeys() {
-		File texFile = new File("/home/fitsum/workspace2/Jabref/testShrinking/tex1.tex");
+		File texFile = new File("testShrinking/tex1.tex");
 
 		Collection<? extends String> keys = ShrinkingDialogUtils
 				.extractKeys(texFile);
@@ -40,7 +40,7 @@ public class ShrinkingDialogUtilsTest {
 
 	@Test
 	public void testCollectKeys() {
-		String texFolder = "/home/fitsum/workspace2/Jabref/testShrinking";
+		String texFolder = "testShrinking";
 
 		Collection<String> keys = ShrinkingDialogUtils
 				.collectKeysFromTexFiles(texFolder);

@@ -1,6 +1,8 @@
-processTreeMapDashJson (  {"id":"Clover database Tue Feb 14 2012 17:48:35 CET0","name":"","data":{
-    "$area":121.0,"$color":0.0,"title":" 121 Elements, 0% Coverage"},
-  "children":[{"id":"swat120","name":"swat","data":{"$area":121.0,"$color":
-        0.0,"title":"swat 121 Elements, 0% Coverage"},"children":[]}]}
+processTreeMapDashJson (  {"id":"Clover database Thu Oct 11 2012 20:11:58 CEST0","name":"","data":{
+    "$area":266.0,"$color":75.18797,"title":
+    " 266 Elements, 75.2% Coverage"},"children":[{"id":
+      "net.sf.jabref.swat0","name":"net.sf.jabref.swat","data":{"$area":
+        266.0,"$color":75.18797,"title":
+        "net.sf.jabref.swat 266 Elements, 75.2% Coverage"},"children":[]}]}
 
  ); 

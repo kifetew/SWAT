@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="var" path="CLOVER_RUNTIME"/>
 	<classpathentry kind="src" path="src/java"/>
 	<classpathentry excluding="extensions/|java/|osx/|osx/osxadapter/|txt/|windows/" kind="src" path="src"/>
 	<classpathentry exported="true" kind="lib" path="lib/plugin/commons-logging.jar"/>
