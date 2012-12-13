@@ -60,8 +60,12 @@ public class ShrinkingDialogUtils {
 		Pattern p = Pattern.compile(REGEX);
 		Matcher m = p.matcher(tex);
 		while (m.find()) {
+			// could be either of the form: \cite{key1} or \cite{key1,key2,key3,...}
 			String cite = tex.substring(m.start(), m.end());
-			keys.add(cite.substring(cite.indexOf('{') + 1, cite.length() - 1));
+			cite = cite.substring(cite.indexOf('{') + 1, cite.length() - 1);
+			for (String key : cite.split(",")){
+				keys.add(key);
+			}
 		}
 		return keys;
 	}
